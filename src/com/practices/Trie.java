@@ -1,5 +1,4 @@
 package com.practices;
-
 import java.util.HashMap;
 
 class TrieNode {
@@ -26,13 +25,13 @@ class TrieNode {
 public class Trie {
 
     private TrieNode rootNode;
-    private final char endOfWordMarker = '\0';
+    private static final char END_OF_WORD_MARKER = '\0';
 
     public Trie() {
         this.rootNode = new TrieNode();
     }
 
-    public boolean checkPresentAndAdd(String word) {
+    public boolean addWord(String word) {
 
         TrieNode currentNode = this.rootNode;
         boolean isNewWord = false;
@@ -55,12 +54,11 @@ public class Trie {
         // Otherwise, we might say a word is
         // present if it is a prefix of a different,
         // longer word that was added earlier.
-        if (!currentNode.hasChildNode(endOfWordMarker)) {
+        if (!currentNode.hasChildNode(END_OF_WORD_MARKER)) {
             isNewWord = true;
-            currentNode.makeChildNode(endOfWordMarker);
+            currentNode.makeChildNode(END_OF_WORD_MARKER);
         }
 
         return isNewWord;
     }
-	
 }
