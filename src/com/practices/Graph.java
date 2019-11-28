@@ -23,9 +23,6 @@ class Vertex {
     }
 }
  
-/**
- * @author Sesh Venugopal. May 31, 2013.
- */
 public class Graph {
  
     Vertex[] adjLists;
