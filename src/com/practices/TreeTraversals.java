@@ -32,7 +32,7 @@ public class TreeTraversals {
     }
 
     private void inorderItr(TreeNode node){
-        LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
+        LinkedList<TreeNode> stack = new LinkedList<>();
         while (!stack.isEmpty() || node != null) {
             while (node != null) {
                 stack.offer(node);
@@ -45,7 +45,7 @@ public class TreeTraversals {
     }
 
     private void preOrderItr(TreeNode node){
-        LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
+        LinkedList<TreeNode> stack = new LinkedList<>();
         stack.addFirst(node);
         while(!stack.isEmpty()){
             node = stack.pollLast();
@@ -56,8 +56,8 @@ public class TreeTraversals {
     }
 
     private void postOrderItr(TreeNode root){
-        LinkedList<TreeNode> stack1 = new LinkedList<TreeNode>();
-        LinkedList<TreeNode> stack2 = new LinkedList<TreeNode>();
+        LinkedList<TreeNode> stack1 = new LinkedList<>();
+        LinkedList<TreeNode> stack2 = new LinkedList<>();
         stack1.offer(root);
         while(!stack1.isEmpty()){
             root = stack1.pollLast();
@@ -70,13 +70,12 @@ public class TreeTraversals {
             System.out.print(stack2.pollLast().val + " ");
     }
 
-    private void postOrderItrOneStack(TreeNode root){
-        TreeNode current = root;
+    private void postOrderItrOneStack(TreeNode node){
         LinkedList<TreeNode> stack = new LinkedList<>();
-        while(current != null || !stack.isEmpty()){
-            while(current != null) {
-                stack.offer(current);
-                current = current.left;
+        while(node != null || !stack.isEmpty()){
+            while(node != null) {
+                stack.offer(node);
+                node = node.left;
             }
             TreeNode temp = stack.peekLast().right;
             if (temp == null) {
@@ -87,20 +86,20 @@ public class TreeTraversals {
                     System.out.print(temp.val + " ");
                 }
             } else {
-                current = temp;
+                node = temp;
             }
         }
     }
 
     public static void main(String args[]){
         /*******************
-         1
-         /       \
-         /          \
-         2             3
-         /      \        /   \
-         4        5      6    7
-         /  \     /  \
+                       1
+                   /          \
+                  /           \
+                 2             3
+             /      \        /   \
+            4        5      6    7
+          /  \     /  \
          8   9    10  11
          ******************/
         TreeNode root = new TreeNode(1);
