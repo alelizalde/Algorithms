@@ -1,7 +1,11 @@
+package com.practices;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-class Solution {
+class GroupThePeople {
 
     static public List<List<Integer>> groupThePeople(int[] groupSizes) {
         List<List<Integer>> groups = new ArrayList<>();
