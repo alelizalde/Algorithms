@@ -47,10 +47,10 @@ public class BinarySearchTree {
 
 	    // depth-first traversal
 	    while (!nodeAndBoundsStack.empty()) {
-	        NodeBounds nb = nodeAndBoundsStack.pop();
-	        BinaryTreeNode node = nb.node;
-	        int lowerBound = nb.lowerBound;
-	        int upperBound = nb.upperBound;
+	        NodeBounds nodeBounds = nodeAndBoundsStack.pop();
+	        BinaryTreeNode node = nodeBounds.node;
+	        int lowerBound = nodeBounds.lowerBound;
+	        int upperBound = nodeBounds.upperBound;
 	        System.out.println("node.value: "+node.value);
             System.out.println("upperBound: "+upperBound);
             System.out.println("lowerBound: "+lowerBound);
@@ -73,7 +73,15 @@ public class BinarySearchTree {
 	    // (at this point we have checked all nodes)
 	    return true;
 	}
-	
+	/*
+	     9
+	    / \
+	  8    11
+	 /       \
+	 5       13
+	  \      /
+	   6    12
+	 */
 	public static void main(String[] args) {
 		BinaryTreeNode tree = new BinaryTreeNode(9);
 		tree.insertLeft(8).insertLeft(5).insertRight(6);
