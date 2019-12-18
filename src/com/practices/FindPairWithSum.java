@@ -1,7 +1,9 @@
+package com.practices;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-class Solution {
+class FindPairWithSum {
 
     static public boolean findPairWithSum(int[] arr, int sum) {
         List<Integer> list = new ArrayList<>();
