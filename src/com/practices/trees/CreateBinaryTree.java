@@ -1,4 +1,6 @@
-package com.practices;
+package com.practices.trees;
+
+import com.practices.trees.BinaryTreeNode;
 
 import java.util.Stack;
 import java.util.ArrayList;

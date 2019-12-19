@@ -1,5 +1,7 @@
 package com.practices;
 
+import com.practices.trees.Trie;
+
 public class Main {
 
     public static void main(String [ ] args){

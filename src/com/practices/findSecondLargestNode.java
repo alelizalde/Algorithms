@@ -1,5 +1,7 @@
 package com.practices;
 
+import com.practices.trees.BinaryTreeNode;
+
 public class findSecondLargestNode {
 	private static int findLargest(BinaryTreeNode rootNode) {
 		BinaryTreeNode current = rootNode;

@@ -3,19 +3,33 @@ import java.util.*;
 
 class Solution {
 
-    static public boolean findPairWithSum(int[] arr, int sum) {
-        List<Integer> list = new ArrayList<>();
+    static int minRemove(int[] arr, int n)
+    {
+        int[] LIS = new int[n];
+        int len = 0;
 
-        for (int val : arr) {
-            if (list.contains(val)) return true;
-            list.add(sum - val);
+        Arrays.fill(LIS, 1);
+
+        // Find LIS of array
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < i; j++) {
+                if (arr[i] > arr[j] && (i-j)<=(arr[i]-arr[j]))
+                    LIS[i] = Math.max(LIS[i], LIS[j] + 1);
+            }
+            len = Math.max(len, LIS[i]);
         }
-        return false;
+
+        // Return min changes for array
+        // to strictly increasing
+        return n - len;
     }
 
-    public static void main(String[] args) {
-        System.out.println(findPairWithSum(new int[]{1, 2, 3, 4}, 8));
-        System.out.println(findPairWithSum(new int[]{1, 2, 4, 4}, 8));
-        System.out.println(findPairWithSum(new int[]{1, 2, 6, 4}, 8));
+    // Driver program to test minRemove()
+    public static void main(String[] args)
+    {
+        int[] arr = { 1, 2, 6, 5, 4 };
+        int n = arr.length;
+
+        System.out.println(minRemove(arr, n));
     }
 }

@@ -1,4 +1,4 @@
-package com.practices;
+package com.practices.trees;
 public class BinaryTree {
 
 	private int data;
